@@ -1,18 +1,56 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import {BrowserRouter} from 'react-router-dom';
+import React, { Component } from 'react' 
+import SideNav from '../../sideNav/TVShow'
+import PropTypes from 'prop-types'
 
-ReactDOM.render(
-<BrowserRouter>
-<App />
-</BrowserRouter>
+export default class ManagePage extends Component {
+    tvShowSelected = () => {
+        console.log("tvShowSelected");
+    }
 
-, document.getElementById('root'));
+    tvShowDeleted = () => {
+        console.log("tvShowDeleted");
+    }
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+    saveTVshow = () => {
+        console.log("saveTVShow");
+    }
+    render() {
+        return (
+            <div>
+                <div>
+                    <div id="tvShowListings"> 
+                        <ul className="shows"> 
+                            <li className="show1"><SideNav title={"Rurouni Kenshin"} selectHandler={this.tvShowSelected} allowDelete={true}/></li>
+                            <li className="show2"><SideNav title={"My GF is a Gumiho"} selectHandler={this.tvShowSelected} allowDelete={true}/></li>
+                        </ul>
+                        <div className="new_edit_show">
+                            <h2>New/Edit Show</h2>
+                            <form className="form-example">
+                                <div className="form-example">
+                                    <label htmlFor="name">Enter your name: </label>
+                                    <input type="text" name="name" id="name" required></input>
+                                </div>
+                                <div className="form-example">
+                                    <label htmlFor="rating">Enter your rating: </label>
+                                    <input type="text" name="rating" id="rating" required></input>
+                                </div>
+                                <div className="form-example">
+                                    <label htmlFor="image">Enter your Image URL: </label>
+                                    <input type="text" name="image" id="image" required></input>
+                                </div>
+                                <div className="form-example"></div>
+                                <SideNav selectHandler={this.saveTVshow}></SideNav>
+                                <input type="submit" className="deleteButton"></input>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+}
+
+ManagePage.propType = {
+    title: PropTypes.string
+};
