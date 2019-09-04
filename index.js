@@ -1,56 +1,25 @@
-import React, { Component } from 'react' 
-import SideNav from '../../sideNav/TVShow'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 
-export default class ManagePage extends Component {
-    tvShowSelected = () => {
-        console.log("tvShowSelected");
-    }
-
-    tvShowDeleted = () => {
-        console.log("tvShowDeleted");
-    }
-
-    saveTVshow = () => {
-        console.log("saveTVShow");
-    }
+export default class PreviewPage extends Component {
     render() {
         return (
             <div>
-                <div>
-                    <div id="tvShowListings"> 
-                        <ul className="shows"> 
-                            <li className="show1"><SideNav title={"Rurouni Kenshin"} selectHandler={this.tvShowSelected} allowDelete={true}/></li>
-                            <li className="show2"><SideNav title={"My GF is a Gumiho"} selectHandler={this.tvShowSelected} allowDelete={true}/></li>
-                        </ul>
-                        <div className="new_edit_show">
-                            <h2>New/Edit Show</h2>
-                            <form className="form-example">
-                                <div className="form-example">
-                                    <label htmlFor="name">Enter your name: </label>
-                                    <input type="text" name="name" id="name" required></input>
-                                </div>
-                                <div className="form-example">
-                                    <label htmlFor="rating">Enter your rating: </label>
-                                    <input type="text" name="rating" id="rating" required></input>
-                                </div>
-                                <div className="form-example">
-                                    <label htmlFor="image">Enter your Image URL: </label>
-                                    <input type="text" name="image" id="image" required></input>
-                                </div>
-                                <div className="form-example"></div>
-                                <SideNav selectHandler={this.saveTVshow}></SideNav>
-                                <input type="submit" className="deleteButton"></input>
-                                
-                            </form>
-                        </div>
+                <div className="managePreview">
+                </div>
+                <div id="tvShowListings">
+                    <ul className="shows">
+                        <h2>Shows</h2>
+                        <li className="show1" allowDelete={false}>Rurouni Kenshin <button>-</button></li>
+                        <li className="show2" allowDelete={false}>My GF is a Gumiho <button>-</button></li>
+                    </ul>
+                    <div className="showName">
+                        <h2>[Show Name]</h2>
+                    </div>
+                    <div className="Ratings">
+                        <h2>[Ratings] </h2>
                     </div>
                 </div>
             </div>
         )
     }
 }
-
-ManagePage.propType = {
-    title: PropTypes.string
-};
