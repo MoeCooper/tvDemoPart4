@@ -1,25 +1,18 @@
-import React, { Component } from 'react'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+import {BrowserRouter} from 'react-router-dom';
 
-export default class PreviewPage extends Component {
-    render() {
-        return (
-            <div>
-                <div className="managePreview">
-                </div>
-                <div id="tvShowListings">
-                    <ul className="shows">
-                        <h2>Shows</h2>
-                        <li className="show1" allowDelete={false}>Rurouni Kenshin <button>-</button></li>
-                        <li className="show2" allowDelete={false}>My GF is a Gumiho <button>-</button></li>
-                    </ul>
-                    <div className="showName">
-                        <h2>[Show Name]</h2>
-                    </div>
-                    <div className="Ratings">
-                        <h2>[Ratings] </h2>
-                    </div>
-                </div>
-            </div>
-        )
-    }
-}
+ReactDOM.render(
+<BrowserRouter>
+<App />
+</BrowserRouter>
+
+, document.getElementById('root'));
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
